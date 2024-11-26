@@ -1,0 +1,45 @@
+﻿<Window x:Class="WpfCalculator.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Калькулятор" Height="400" Width="300">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Поля ввода чисел -->
+        <StackPanel Orientation="Vertical" Margin="10">
+            <TextBox x:Name="Number1" Margin="0,5" HorizontalAlignment="Stretch" 
+                     GotFocus="ClearPlaceholder" LostFocus="SetPlaceholder" Text="Введите первое число"/>
+            <TextBox x:Name="Number2" Margin="0,5" HorizontalAlignment="Stretch" 
+                     GotFocus="ClearPlaceholder" LostFocus="SetPlaceholder" Text="Введите второе число (если нужно)"/>
+        </StackPanel>
+
+        <!-- Выпадающий список операций -->
+        <ComboBox x:Name="Operation" Margin="10" Grid.Row="1">
+            <ComboBoxItem Content="Сложение (+)" />
+            <ComboBoxItem Content="Вычитание (-)" />
+            <ComboBoxItem Content="Умножение (*)" />
+            <ComboBoxItem Content="Деление (/)" />
+            <ComboBoxItem Content="Возведение в степень (^)" />
+            <ComboBoxItem Content="Факториал (!)" />
+        </ComboBox>
+
+        <!-- Кнопка для выполнения операции -->
+        <Button Content="Рассчитать" Margin="10" Grid.Row="2" Click="Calculate"/>
+
+        <!-- Область вывода результата -->
+        <TextBlock x:Name="ResultText" Grid.Row="3" Margin="10" FontSize="16" TextWrapping="Wrap" 
+                   HorizontalAlignment="Center" Text="Результат появится здесь"/>
+
+        <!-- Кнопка выхода -->
+        <Button Content="Закрыть" Grid.Row="4" Margin="10" Click="CloseApp" />
+    </Grid>
+</Window>

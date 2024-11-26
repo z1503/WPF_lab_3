@@ -1,0 +1,9 @@
+# Visual Studio исключаемые файлы
+.vs/
+bin/
+obj/
+*.user
+*.suo
+*.log
+*.pdb
+*.sln.docstates
